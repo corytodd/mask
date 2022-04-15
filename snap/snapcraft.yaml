@@ -1,0 +1,20 @@
+name: corytodd-mask
+base: core20
+version: '0.1'
+summary: The binary masking tool
+description: |
+  This tool provides basic binary operation like XOR and HEX on string 
+  or stdin inputs. Nothing special, just wanted to write a snap.
+
+grade: devel # must be 'stable' to release into candidate/stable channels
+confinement: devmode # use 'strict' once you have the right plugs and slots
+
+parts:
+  cmake-build:
+    # See 'snapcraft plugins'
+    plugin: cmake
+    cmake-parameters:
+            - -DCMAKE_INSTALL_PREFIX=/usr
+    source: .
+    build-packages:
+            - g++
